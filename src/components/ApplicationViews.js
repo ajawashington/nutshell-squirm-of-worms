@@ -3,6 +3,8 @@ import { Route } from "react-router-dom"
 import { EventProvider } from "./events/EventProvider"
 import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
+import { ArticleProvider } from "./articles/ArticleProvider"
+import ArticleList from "./articles/ArticleList"
 
 
 
@@ -18,6 +20,14 @@ export default (props) => {
                     props => <EventForm {...props} />
                 }/>
             </EventProvider>
+
+            <ArticleProvider>
+                    <Route exact path="/" render={
+                        props => <ArticleList {...props}/>
+                    }/>
+
+
+            </ArticleProvider>
 
         </>
     )
