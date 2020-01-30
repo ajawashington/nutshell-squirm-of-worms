@@ -19,6 +19,9 @@ export default (props) => {
                 <Route exact path="/events" render={
                     props => <EventForm {...props} />
                 }/>
+                 <Route path="/events/edit/:eventId(\d+)" render={
+                            props => <EventForm {...props} />
+                        } />
             </EventProvider>
 
             <ArticleProvider>
