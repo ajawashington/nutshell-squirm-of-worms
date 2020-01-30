@@ -51,7 +51,7 @@ export default props => {
                 <input
                     type="date"
                     id="eventDate"
-                    ref={eventLocation}
+                    ref={eventDate}
                     required
                     autoFocus
                     className="form-control"
