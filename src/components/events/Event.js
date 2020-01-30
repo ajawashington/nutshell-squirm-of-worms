@@ -15,7 +15,9 @@ export default ({ event, history }) => {
     return(
     
     <div> 
-        <button>Edit Event</button>
+      <button onClick={() => {
+               history.push(`/events/edit/${event.id}`)
+            }}>Edit</button>
     
         <button onClick={
             () => {
