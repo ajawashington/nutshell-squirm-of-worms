@@ -5,6 +5,7 @@ import EventList from "./events/EventList"
 import EventForm from "./events/EventForm"
 import { ArticleProvider } from "./articles/ArticleProvider"
 import ArticleList from "./articles/ArticleList"
+import ArticleForm from "./articles/ArticleForm"
 
 
 
@@ -28,6 +29,13 @@ export default (props) => {
                     <Route exact path="/" render={
                         props => <ArticleList {...props}/>
                     }/>
+                     <Route exact path="/articles" render={
+                    props => <ArticleForm {...props} />
+                }/>
+                 <Route path="/articles/edit/:articleId(\d+)" render={
+                            props => <ArticleForm {...props} />
+                        } />
+                    
 
 
             </ArticleProvider>
