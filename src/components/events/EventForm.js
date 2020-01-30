@@ -39,7 +39,7 @@ export default props => {
                 id: event.id,
                 name: event.name,
                 location: event.location,
-                eventDate: event.date,
+                eventDate: event.eventDate,
                 userId: parseInt(localStorage.getItem("nutshell_user"), 10)
             })
                 .then(() => props.history.push("/"))
@@ -47,7 +47,7 @@ export default props => {
             addEvent({
                 name: event.name,
                 location: event.location,
-                eventDate: event.date,
+                eventDate: event.eventDate,
                 userId: parseInt(localStorage.getItem("nutshell_user"), 10)
             })
             .then(() => props.history.push("/"))
@@ -101,7 +101,7 @@ export default props => {
                 <input
                     type="date"
                     id="eventDate"
-                    name="date"
+                    name="eventDate"
                     defaultValue={event.eventDate}
                     required
                     className="form-control"
