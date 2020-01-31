@@ -12,6 +12,8 @@ import TaskForm from "./tasks/TaskForm";
 import { MessageProvider } from "./messages/MessageProvider"
 import MessageList from "./messages/MessageList"
 import MessageForm from "./messages/MessageForm"
+import { FriendProvider } from "./friends/FriendProvider"
+import FriendList from "./friends/FriendList"
 // import ProviderProvider from "./ProviderProvider"
 
 
@@ -22,6 +24,12 @@ export default (props) => {
         {/* <ProviderProvider>
             <Route exact path="/"></Route>
         </ProviderProvider> */}
+            <FriendProvider>
+                    <Route exact path="/" render={
+                                props => <FriendList {...props}/>
+                            }/>
+                 
+            </FriendProvider>
             <TaskProvider>
                     <Route exact path="/" render={
                                 props => <TaskList {...props}/>
