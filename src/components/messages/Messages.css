@@ -1,0 +1,22 @@
+.messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  border: 1px solid slateblue;
+}
+
+.message {
+    display:flex;
+    flex-direction: row;
+    flex-basis: 28%;
+    margin: 2px 0px 2px 0px ;
+    padding: 1em;
+}
+.message__text{
+  margin-left: 5px;
+  margin-right: 5px; 
+}
+.email__name{
+font-weight: bold;
+}
