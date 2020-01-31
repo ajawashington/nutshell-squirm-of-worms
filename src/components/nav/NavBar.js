@@ -15,7 +15,7 @@ export default (props) => {
                 <Link className="navbar__link" to="/messages">Messages</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/news">News</Link>
+                <Link className="navbar__link" to="/articles">Articles</Link>
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/tasks">Tasks</Link>
