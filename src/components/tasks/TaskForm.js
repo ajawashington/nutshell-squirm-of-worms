@@ -12,9 +12,11 @@ export default props => {
         addTask({
             text: taskText.current.value,
             completionDate: taskCompletionDate.current.value,
+            isCompleted: false, 
             userId: parseInt(localStorage.getItem("nutshell_user"), 10)
         })
         .then(() => props.history.push("/"))
+        
     }
     
 

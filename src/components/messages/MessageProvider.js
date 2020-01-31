@@ -4,47 +4,47 @@ import React, { useState, useEffect } from "react"
     The context is imported and used by individual components
     that need data
 */
-export const EventContext = React.createContext()
+export const MessageContext = React.createContext()
 
 /*
  This component establishes what data can be used.
  */
-export const EventProvider = (props) => {
-    const [events, setEvents] = useState([])
+export const MessageProvider = (props) => {
+    const [messages, setMessages] = useState([])
 
-    const getEvents = () => {
-        return fetch("http://localhost:8088/events")
+    const getMessages = () => {
+        return fetch("http://localhost:8088/messages?_expand=user")
             .then(res => res.json())
-            .then(setEvents)
+            .then(setMessages)
     }
 
-    const addEvent = event => {
-        return fetch("http://localhost:8088/events", {
+    const addMessage = message => {
+        return fetch("http://localhost:8088/messages", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(event)
+            body: JSON.stringify(message)
         })
-            .then(getEvents)
+            .then(getMessages)
     }
 
-    const deleteEvent = event => {
-        return fetch(`http://localhost:8088/events/${event.id}`, {
+    const deleteMessage = message => {
+        return fetch(`http://localhost:8088/messages/${message.id}`, {
             method: "DELETE",
         })
-            .then(getEvents)
+            .then(getMessages)
     }
 
-    const updateEvent = event => {
-        return fetch(`http://localhost:8088/events/${event.id}`, {
+    const updateMessage = message => {
+        return fetch(`http://localhost:8088/messages/${message.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(event)
+            body: JSON.stringify(message)
         })
-            .then(getEvents)
+            .then(getMessages)
     }
 
     /*
@@ -52,18 +52,18 @@ export const EventProvider = (props) => {
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {
-        getEvents()
+        getMessages()
     }, [])
 
     useEffect(() => {
-        console.log("****  Event APPLICATION STATE CHANGED  ****")
-    }, [events])
+        console.log("****  Message APPLICATION STATE CHANGED  ****")
+    }, [messages])
 
     return (
-        <EventContext.Provider value={{
-            events, addEvent, deleteEvent, updateEvent
+        <MessageContext.Provider value={{
+            messages, addMessage, deleteMessage, updateMessage
         }}>
             {props.children}
-        </EventContext.Provider>
+        </MessageContext.Provider>
     )
 }

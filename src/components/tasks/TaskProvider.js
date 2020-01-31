@@ -13,7 +13,7 @@ export const TaskProvider = (props) => {
     const [tasks, setTasks] = useState([])
 
     const getTasks = () => {
-        return fetch("http://localhost:8088/tasks")
+        return fetch("http://localhost:8088/tasks?isCompleted=false")
             .then(res => res.json())
             .then(setTasks)
     }
@@ -36,6 +36,16 @@ export const TaskProvider = (props) => {
             .then(getTasks)
     }
 
+    const updateTask= task => {
+        return fetch(`http://localhost:8088/tasks/${task.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(task)
+        })
+            .then(getTasks)
+    }
 
     /*
         Load all animals when the component is mounted. Ensure that
@@ -51,7 +61,7 @@ export const TaskProvider = (props) => {
 
     return (
         <TaskContext.Provider value={{
-            tasks, addTask, deleteTask
+            tasks, addTask, deleteTask, updateTask
         }}>
             {props.children}
         </TaskContext.Provider>

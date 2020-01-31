@@ -3,28 +3,30 @@ import "./Tasks.css"
 import { TaskContext } from "./TaskProvider";
 
 export default ({ task, history }) => {
-    const { deleteTask } = useContext(TaskContext)
-    const [hideText, setHideText] = useState(true);
+    const { deleteTask, updateTask } = useContext(TaskContext)
 
-//write a function that returns either the string hidden or a blank string based on state
-//write a function that returns the entire component, or just the unhidden part, based on state 
-
-    // const hideTask = () => {
-    //     if (hideText === true){
+        const completedTask = () => {
             
+            updateTask({
+                id: task.id,
+                text: task.text,
+                completionDate: task.completionDate,
+                isCompleted: true, 
+                userId: parseInt(localStorage.getItem("nutshell_user"), 10)
+            })
+
+        }
+
             return(
                 
             <section className="task">
         
                 <input type="checkbox" className="" id={ `task--${task.id}` }
         
-                    // onClick={
-                    // () => {
-                    //     setHideText(false)
-                    //     .then(() => {
-                    //         history.push("/")            
-                    //     })
-                    // }}
+                    onClick={
+                    () => {
+                        completedTask()
+                    }}
                 />
         
                 <div className="task__text">{ task.text }</div>
@@ -42,11 +44,6 @@ export default ({ task, history }) => {
             </section>
         
         )
-    //     } else {
-    //         return("")
-    //     }
-        
-    // }
-    // hideTask()
+
 
 }
