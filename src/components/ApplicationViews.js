@@ -41,6 +41,8 @@ export default (props) => {
             </TaskProvider>
             
             <EventProvider>
+                <FriendProvider>
+
                 <Route exact path="/" render={
                     props => <EventList {...props} />
                 }/>
@@ -51,9 +53,11 @@ export default (props) => {
                  <Route path="/events/edit/:eventId(\d+)" render={
                             props => <EventForm {...props} />
                         } />
+                </FriendProvider>
             </EventProvider>
 
             <ArticleProvider>
+                <FriendProvider>
                     <Route exact path="/" render={
                         props => <ArticleList {...props}/>
                     }/>
@@ -63,7 +67,7 @@ export default (props) => {
                  <Route path="/articles/edit/:articleId(\d+)" render={
                             props => <ArticleForm {...props} />
                         } />
-
+                </FriendProvider>
             </ArticleProvider>
 
             <TaskProvider>

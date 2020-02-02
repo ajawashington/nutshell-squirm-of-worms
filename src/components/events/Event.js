@@ -4,10 +4,12 @@ import { EventContext } from "./EventProvider"
 
 
 
-
 export default ({ event, history }) => {
     
     const {deleteEvent} = useContext(EventContext)
+
+
+
     
     const activeUserEvent = (event, history) => {
         
