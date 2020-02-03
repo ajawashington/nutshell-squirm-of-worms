@@ -18,16 +18,16 @@ export const FriendProvider = (props) => {
             .then(setFriends)
     }
 
-    const addFriend = friend => {
-        return fetch("http://localhost:8088/friends", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(friend)
-        })
-            .then(getFriends)
-    }
+    const addFriend = newFriend => {
+      return fetch("http://localhost:8088/friends", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newFriend)
+      })
+          .then(getFriends)
+  }
 
     const deleteFriend = friend => {
         return fetch(`http://localhost:8088/friends/${friend.id}`, {
@@ -51,7 +51,7 @@ export const FriendProvider = (props) => {
 
     return (
         <FriendContext.Provider value={{
-            friends, addFriend, deleteFriend
+            friends, addFriend, deleteFriend, getFriends
         }}>
             {props.children}
         </FriendContext.Provider>
