@@ -18,13 +18,13 @@ export const FriendProvider = (props) => {
             .then(setFriends)
     }
 
-    const addFriend = friend => {
+    const addFriend = newFriend => {
         return fetch("http://localhost:8088/friends", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(friend)
+            body: JSON.stringify(newFriend)
         })
             .then(getFriends)
     }
