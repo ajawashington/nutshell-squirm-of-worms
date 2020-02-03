@@ -19,6 +19,7 @@ export const EventProvider = (props) => {
     }
 
     const addEvent = event => {
+        
         return fetch("http://localhost:8088/events", {
             method: "POST",
             headers: {

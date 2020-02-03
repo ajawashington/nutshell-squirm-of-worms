@@ -5,9 +5,12 @@ import "./Friends.css"
 
 export default (props) => {
     const { friends } = useContext(FriendContext)
+
     const activeUserFriends = friends.filter( friend => {
       return friend.activeUserId === parseInt(localStorage.getItem("nutshell_user"), 10)
     })
+
+    console.log("activeUserFriends", activeUserFriends)
 
     return (
         <>
