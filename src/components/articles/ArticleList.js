@@ -29,7 +29,6 @@ export default (props) => {
         })
     })
 
-
     const singleFriendArticle = friendsArticles.map (f => {
         return f.map(sf => articlesArray.push(sf))
     })

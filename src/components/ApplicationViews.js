@@ -14,6 +14,9 @@ import MessageList from "./messages/MessageList"
 import MessageForm from "./messages/MessageForm"
 import { FriendProvider } from "./friends/FriendProvider"
 import FriendList from "./friends/FriendList"
+import FriendForm from "./friends/FriendForm"
+import { UserProvider } from "./users/UserProvider"
+import FriendPreview from "./friends/FriendPreview"
 // import ProviderProvider from "./ProviderProvider"
 
 
@@ -25,11 +28,20 @@ export default (props) => {
             <Route exact path="/"></Route>
         </ProviderProvider> */}
             <FriendProvider>
+               <UserProvider>
                     <Route exact path="/" render={
                                 props => <FriendList {...props}/>
                             }/>
-                 
+
+                 <Route exact path="/friends" render ={
+                     props => <FriendForm {...props}/>
+                 }/>
+               
+
+
+               </UserProvider>
             </FriendProvider>
+
             <TaskProvider>
                     <Route exact path="/" render={
                                 props => <TaskList {...props}/>
