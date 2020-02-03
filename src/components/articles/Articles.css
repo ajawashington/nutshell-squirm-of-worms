@@ -8,5 +8,13 @@
       flex-basis: 28%;
       margin: 1em;
       padding: 1em;
-      border: 1px solid goldenrod;
+      border: 1px solid  rgb(224, 162, 162);
+      font-style: italic;
+        background-color: cornsilk;
   }
+
+.active__article < section {
+
+    background-color: white;
+    
+}

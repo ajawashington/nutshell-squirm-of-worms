@@ -15,7 +15,7 @@ export default ({ article, history }) => {
     return(
     
     <div> 
-          <button onClick={() => {
+          <button className="active__article" onClick={() => {
                history.push(`/articles/edit/${article.id}`)
             }}>Edit</button>
     

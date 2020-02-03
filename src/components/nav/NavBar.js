@@ -12,9 +12,6 @@ export default (props) => {
                 <Link className="navbar__link" to="/friends">Add Friends</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/messages">Messages</Link>
-            </li>
-            <li className="navbar__item">
                 <Link className="navbar__link" to="/articles">Articles</Link>
             </li>
             <li className="navbar__item">
