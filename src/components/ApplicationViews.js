@@ -22,11 +22,11 @@ import FriendPreview from "./friends/FriendPreview";
 export default props => {
   return (
     <>
-      {/* <ProviderProvider>
-            <Route exact path="/"></Route>
-        </ProviderProvider> */}
+     <FriendProvider>
+
+    
           <MessageProvider>
-      <FriendProvider>
+     
             <UserProvider>
           <Route exact path="/" render={props => <FriendList {...props} />} />
 
@@ -35,7 +35,7 @@ export default props => {
             render={props => <FriendForm {...props} />}
           />
             </UserProvider>
-      </FriendProvider>
+     
         </MessageProvider>
 
       <TaskProvider>
@@ -45,7 +45,7 @@ export default props => {
       </TaskProvider>
 
       <EventProvider>
-        <FriendProvider>
+     
           <Route exact path="/" render={props => <EventList {...props} />} />
 
           <Route
@@ -57,11 +57,11 @@ export default props => {
             path="/events/edit/:eventId(\d+)"
             render={props => <EventForm {...props} />}
           />
-        </FriendProvider>
+     
       </EventProvider>
 
       <ArticleProvider>
-        <FriendProvider>
+       
           <Route exact path="/" render={props => <ArticleList {...props} />} />
           <Route
             exact
@@ -72,12 +72,11 @@ export default props => {
             path="/articles/edit/:articleId(\d+)"
             render={props => <ArticleForm {...props} />}
           />
-        </FriendProvider>
+      
       </ArticleProvider>
 
      <MessageProvider>
       <TaskProvider>
-        <FriendProvider>
           <EventProvider>
             <ArticleProvider>
               <Route
@@ -116,9 +115,9 @@ export default props => {
               />
             </ArticleProvider>
           </EventProvider>
-        </FriendProvider>
       </TaskProvider>
     </MessageProvider>
+    </FriendProvider>
     </>
   );
 };
