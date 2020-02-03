@@ -25,16 +25,18 @@ export default props => {
       {/* <ProviderProvider>
             <Route exact path="/"></Route>
         </ProviderProvider> */}
+          <MessageProvider>
       <FriendProvider>
-        <UserProvider>
+            <UserProvider>
           <Route exact path="/" render={props => <FriendList {...props} />} />
 
           <Route
             exact path="/friends"
             render={props => <FriendForm {...props} />}
           />
-        </UserProvider>
+            </UserProvider>
       </FriendProvider>
+        </MessageProvider>
 
       <TaskProvider>
         <Route exact path="/" render={props => <TaskList {...props} />} />
@@ -73,9 +75,9 @@ export default props => {
         </FriendProvider>
       </ArticleProvider>
 
+     <MessageProvider>
       <TaskProvider>
         <FriendProvider>
-        <MessageProvider>
           <EventProvider>
             <ArticleProvider>
               <Route
@@ -91,6 +93,10 @@ export default props => {
               <Route
                 path="/:messageId(\d+)"
                 render={props => <TaskList {...props} />}
+              />
+              <Route
+                path="/:messageId(\d+)"
+                render={props => <FriendList {...props} />}
               />
               <Route
                 path="/:messageId(\d+)"
@@ -110,9 +116,9 @@ export default props => {
               />
             </ArticleProvider>
           </EventProvider>
-        </MessageProvider>
         </FriendProvider>
       </TaskProvider>
+    </MessageProvider>
     </>
   );
 };
